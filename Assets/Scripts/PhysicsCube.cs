@@ -4,6 +4,7 @@ public class PhysicsCube : MonoBehaviour
 {
     Rigidbody _cubeRb;
     float _upForceOnInteract;
+
     void Awake()
     {
         _cubeRb = GetComponent<Rigidbody>();
@@ -25,6 +26,10 @@ public class PhysicsCube : MonoBehaviour
     void Interact()
     {
         if (_cubeRb == null)
+        {
+            return;
+        }
+        else
         {
             _cubeRb.AddForce(Vector3.up * _upForceOnInteract);
         }
